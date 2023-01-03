@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct AMAApp: App {
+    @StateObject var requestModel = RequestModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(prompt: $requestModel.prompt)
+                .environmentObject(requestModel)
         }
     }
 }
